@@ -17,13 +17,13 @@ class Carrito extends Model
 
     // Relacion de Carrito con Usuario
 
-    public function usuarios(){
+    public function usuario(){
 
         return $this->belongsTo('App\Usuario');
 
     }
     
-    public function productos(){
+    public function producto(){
         
         return $this->hasMany('App\Producto');
     }
