@@ -14,6 +14,19 @@ class FavoritosMigration extends Migration
     {
         Schema::create('favoritos', function (Blueprint $table) {
             $table->increments('id');
+
+            // Añadimos clave foraneas de Usuario
+
+            $table->integer('usuario_id')->unsigned();
+
+            $table->foreign('usuario_id')->references('id')->on('usuarios');
+
+            // Añadimos clave foraneas de Usuario
+
+            $table->integer('producto_id')->unsigned();
+
+            $table->foreign('producto_id')->references('id')->on('productos');
+
             $table->timestamps();
         });
     }

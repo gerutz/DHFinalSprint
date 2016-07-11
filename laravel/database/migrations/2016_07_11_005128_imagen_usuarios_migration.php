@@ -14,6 +14,16 @@ class ImagenUsuariosMigration extends Migration
     {
         Schema::create('imagen_usuarios', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('label',200);
+
+            // Añadimos clave foranea Usuario
+
+            $table->integer('usuario_id')->unsigned();
+            
+            // Indicamos la clave foranea de esta tabla
+            
+            $table->foreign('usuario_id')->references('id')->on('usuarios');
+
             $table->timestamps();
         });
     }

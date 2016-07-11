@@ -14,6 +14,9 @@ class ProductosMigration extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo',250);
+            $table->string('descripcion',500);
+            $table->integer('stock');
             $table->timestamps();
         });
     }

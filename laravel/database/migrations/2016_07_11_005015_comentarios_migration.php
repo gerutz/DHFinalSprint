@@ -14,6 +14,16 @@ class ComentariosMigration extends Migration
     {
         Schema::create('comentarios', function (Blueprint $table) {
             $table->increments('id');
+            $table->dateTime('fecha');
+            
+            // Añadimos clave foranea de Usuarios
+            
+            $table->integer('usuario_id')->unsigned();
+            
+            // Indicamos cual es la clave foranea
+            
+            $table->foreign('usuario_id')->references('id')->on('usuarios');
+
             $table->timestamps();
         });
     }
